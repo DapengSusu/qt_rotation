@@ -9,7 +9,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(&timer, &QTimer::timeout, [this]
+    connect(&timer, &QTimer::timeout, [this]()
     {
         if (360 == angle) {
             angle = 0;
@@ -54,4 +54,5 @@ void Widget::paintEvent(QPaintEvent *event)
     painter->drawPixmap(rect, pix);
 
     painter->restore();
+    painter->end();
 }
